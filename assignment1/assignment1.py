@@ -62,7 +62,11 @@ def calc(num1, num2, operator="multiply"):
     return result
 
 
-# Task 4: 
+# Task 4: Data Type Conversion
+# Create a function that takes two parameters: a value and the type to convert to
+def data_type_conversion(value, type):
+    type_error = f"You can't convert {value} into a {type}."
+    
 
 ### DEBUGGING ###
 
