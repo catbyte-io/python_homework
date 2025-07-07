@@ -84,6 +84,30 @@ def data_type_conversion(value, type):
                 return value_error
     return converted
 
+def grade(*args):
+    try:
+        average = sum(args) / len(args)
+    except (TypeError, ZeroDivisionError):
+        return "Invalid data was provided."
+    if average < 60:
+        return "F"
+    elif average < 70:
+        return "D"
+    elif average < 80:
+        return "C"
+    elif average < 90:
+        return "B"
+    else:
+        return "A"
+    
+
+# Task 6: Use a For Loop with a Range
+def repeat(string, count):
+    word = ''
+    for i in range(count):
+        word = f"{word}{string}"
+    return word
+
 
 ### DEBUGGING ###
 
@@ -93,6 +117,9 @@ print(hello())
 # Prints "Hello, Cersei!"
 print(greet("Cersei"))
 
-# Returns "You can't subtract those values!"
+# Prints "You can't subtract those values!"
 print(calc("5", 7, "subtract"))
+
+# Prints "up!up!up!up!up!up!"
+print(repeat("up!", 6))
 
