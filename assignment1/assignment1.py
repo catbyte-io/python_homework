@@ -84,6 +84,8 @@ def data_type_conversion(value, type):
                 return value_error
     return converted
 
+
+# Task 5: Grading System, Using *args
 def grade(*args):
     try:
         average = sum(args) / len(args)
@@ -107,6 +109,30 @@ def repeat(string, count):
     for i in range(count):
         word = f"{word}{string}"
     return word
+
+
+# Task 7: Student Scores, Using **kwargs
+def student_scores(choice, **kwargs): 
+    match choice:
+        case "best":
+            # Initialize high_score to keep track of highest score
+            high_score = 0
+
+            # Track the highest scoring student
+            hs_student = ""
+
+            for student, score in kwargs.items():
+                if score > high_score:
+                    high_score = score
+                    hs_student = student
+            return hs_student
+        case "mean":
+            # Calculate the average of the list of scores
+            scores = kwargs.values()
+            mean = sum(scores) / len(scores)
+            return mean
+
+
 
 
 ### DEBUGGING ###
