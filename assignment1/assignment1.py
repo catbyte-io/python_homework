@@ -134,9 +134,24 @@ def student_scores(choice, **kwargs):
 
 # Task 8: Titleize, with String and List Operations
 def titleize(string):
+    # Split the string using whitespace character and assign to a list of words
     words = string.split(' ')
-    
+
+    # Define list of little words to skip capitalization
+    little_words = ["a", "on", "an", "the", "of", "and", "is", "in"]
+
+    # Enumerate the list of words and capitalize the relevant words
+    for i, word in enumerate(words):
+        # Check if the word is a little word
+        if word in little_words:
+            continue
+        else:
+            word = word.capitalize()
+
+    # Join the titleized words together using a whitespace character
     new_string = ' '.join(words)
+
+    # Return the new titleized string
     return new_string
 
 
