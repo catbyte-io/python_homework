@@ -142,11 +142,10 @@ def titleize(string):
 
     # Enumerate the list of words and capitalize the relevant words
     for i, word in enumerate(words):
-        # Check if the word is a little word
-        if word in little_words:
-            continue
-        else:
-            word = word.capitalize()
+        # Check if the word is not a little word and if so capitalize
+        if words[i] not in little_words:
+            # Assign word the new capitalized word
+            words[i] = words[i].capitalize()
 
     # Join the titleized words together using a whitespace character
     new_string = ' '.join(words)
