@@ -143,7 +143,7 @@ def titleize(string):
     # Enumerate the list of words and capitalize the relevant words
     for i, word in enumerate(words):
         # Check if the word is not a little word and if so capitalize
-        if words[i] not in little_words:
+        if words[i] not in little_words or i == 0 or i == len(words) - 1:
             # Assign word the new capitalized word
             words[i] = words[i].capitalize()
 
@@ -169,4 +169,4 @@ print(calc("5", 7, "subtract"))
 # Prints "up!up!up!up!up!up!"
 print(repeat("up!", 6))
 
-print(titleize("This is a test."))
+print(titleize("and this is a test if."))
