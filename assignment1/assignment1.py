@@ -154,6 +154,31 @@ def titleize(string):
     return new_string
 
 
+# Task 9: Hangman, with more String Operations
+def hangman(secret, guess):
+    # Create a list of letters from the secret
+    secret_letters = list(secret)
+
+    # Create a list of letters from the guess
+    guessed_letters = list(guess)
+
+    # Create empty string for result
+    result = ''
+
+    # Enumerate through each letter in the secret
+    for i, s_letter in enumerate(secret_letters):
+        # Check if that letter was guessed
+        if s_letter in guessed_letters:
+            # If guessed, append to result
+            result += s_letter
+        else:
+            # If not guessed, append underscore
+            result += '_'
+            
+    # Return the resulting string
+    return result
+
+
 
 ### DEBUGGING ###
 
@@ -170,3 +195,5 @@ print(calc("5", 7, "subtract"))
 print(repeat("up!", 6))
 
 print(titleize("and this is a test if."))
+
+print(hangman("operatingsystem", "omg"))
