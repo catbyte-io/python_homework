@@ -132,6 +132,12 @@ def student_scores(choice, **kwargs):
             mean = sum(scores) / len(scores)
             return mean
 
+# Task 8: Titleize, with String and List Operations
+def titleize(string):
+    words = string.split(' ')
+    
+    new_string = ' '.join(words)
+    return new_string
 
 
 
@@ -149,3 +155,4 @@ print(calc("5", 7, "subtract"))
 # Prints "up!up!up!up!up!up!"
 print(repeat("up!", 6))
 
+print(titleize("This is a test."))
