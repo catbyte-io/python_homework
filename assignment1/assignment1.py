@@ -105,9 +105,14 @@ def grade(*args):
 
 # Task 6: Use a For Loop with a Range
 def repeat(string, count):
+    # Assign blank string to word
     word = ""
+
+    # For each count, add the given string to the word string
     for i in range(count):
         word = f"{word}{string}"
+
+    # Return the new string
     return word
 
 
@@ -193,6 +198,7 @@ def pig_latin(string):
     for word in words:
         # Create a blank string for the converted word
         converted = ""
+
         # Check for word starting with vowel and for no vowels (asked GPT-4.0 mini how to check if none of the letters /
         # are in the list of vowels because my initial attempt of `or vowels not in word` and attempt to use word[0:len(word) - 1] did not work)     
         if word[0] in vowels or all(letter not in vowels for letter in word):
