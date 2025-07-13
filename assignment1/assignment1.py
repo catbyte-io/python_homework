@@ -105,7 +105,7 @@ def grade(*args):
 
 # Task 6: Use a For Loop with a Range
 def repeat(string, count):
-    word = ''
+    word = ""
     for i in range(count):
         word = f"{word}{string}"
     return word
@@ -135,7 +135,7 @@ def student_scores(choice, **kwargs):
 # Task 8: Titleize, with String and List Operations
 def titleize(string):
     # Split the string using whitespace character and assign to a list of words
-    words = string.split(' ')
+    words = string.split(" ")
 
     # Define list of little words to skip capitalization
     little_words = ["a", "on", "an", "the", "of", "and", "is", "in"]
@@ -148,7 +148,7 @@ def titleize(string):
             words[i] = words[i].capitalize()
 
     # Join the titleized words together using a whitespace character
-    new_string = ' '.join(words)
+    new_string = " ".join(words)
 
     # Return the new titleized string
     return new_string
@@ -163,7 +163,7 @@ def hangman(secret, guess):
     guessed_letters = list(guess)
 
     # Create empty string for result
-    result = ''
+    result = ""
 
     # Enumerate through each letter in the secret
     for i, s_letter in enumerate(secret_letters):
@@ -173,27 +173,68 @@ def hangman(secret, guess):
             result += s_letter
         else:
             # If not guessed, append underscore
-            result += '_'
-            
+            result += "_"
+
     # Return the resulting string
     return result
 
+# Task 10: Pig Latin, Another String Manipulation Exercise
+def pig_latin(string):
+    # Create list of words from string
+    words = string.split(" ")
+
+    # Create a list in which to store converted words
+    ordsray = []
+
+    # Create list of vowels
+    vowels = ["a", "e", "i", "o", "u"]
+ 
+    # For each word in the list, convert to pig latin
+    for word in words:
+        # Create a blank string for the converted word
+        converted = ""
+        # Check for word starting with vowel and for no vowels (asked GPT-4.0 mini how to check if none of the letters /
+        # are in the list of vowels because my initial attempt of `or vowels not in word` and attempt to use word[0:len(word) - 1] did not work)     
+        if word[0] in vowels or all(letter not in vowels for letter in word):
+            converted += f"{word}ay"
+        # Check for qu condition
+        elif "qu" in word:
+            # Find the index where "qu" first occurs and add two to get index to make the swap
+            qu_index = word.index("qu") + 2
+            converted += f"{word[qu_index:]}{word[:qu_index]}ay"
+        else:
+            # Check for first instance of a vowel and create converted word by swapping using indexing and adding "ay"
+            for j, letter in enumerate(word):
+                if letter in vowels:
+                    converted += f"{word[j:]}{word[:j]}ay"
+                    break
+        # Add converted word to list of converted words
+        ordsray.append(converted)
+
+    # Join the words back together
+    ingstray = " ".join(ordsray)
+    return ingstray
 
 
 ### DEBUGGING ###
 
 # Prints "Hello!"
-print(hello())
+# print(hello())
 
 # Prints "Hello, Cersei!"
-print(greet("Cersei"))
+# print(greet("Cersei"))
 
 # Prints "You can't subtract those values!"
-print(calc("5", 7, "subtract"))
+# print(calc("5", 7, "subtract"))
 
 # Prints "up!up!up!up!up!up!"
-print(repeat("up!", 6))
+# print(repeat("up!", 11))
 
-print(titleize("and this is a test if."))
+# Prints "And This is a Test If"
+# print(titleize("and this is a test if"))
 
-print(hangman("operatingsystem", "omg"))
+# Prints "o_______g_____m"
+# print(hangman("operatingsystem", "omg"))
+
+# Prints "RMCay ibblequay albuquerqueay aressquay evernay usttray alwaysay erifyvay"
+# print(pig_latin("RMC quibble albuquerque squares never trust always verify"))
