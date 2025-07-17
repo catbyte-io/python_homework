@@ -1,4 +1,41 @@
+import csv
+import traceback
+
+
 # Task 2: Read a CSV File
+def read_employees():
+    # Create empty dictionary
+    my_dict = {}
+
+    # Create list of rows
+    rows = []
+
+    # Read a csv file
+    try:
+        with open("../csv/employees.csv") as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+
+            # Get only the first line
+            my_dict["fields"] = next(reader)
+
+            # Read each row and save to list of rows
+            for row in reader:
+                rows.append(row)
+                
+            my_dict["rows"] = rows
+        return my_dict
+                
+    except Exception as e:
+        trace_back = traceback.extract_tb(e.__traceback__)
+        stack_trace = list()
+        for trace in trace_back:
+            stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
+            print(f"Exception type: {type(e)._name_}")
+            message = str(e)
+            if message:
+                print(f"Exception message: {message}")
+            print(f"Stack trace: {stack_trace}")
+
 # Task 3: Find the Column Index
 # Task 4: Find the Employee First Name
 # Task 5: Find the Employee: a Function in a Function
