@@ -74,6 +74,11 @@ def employee_find(employee_id):
 
 
 # Task 6: Find the Employee with a Lambda
+def employee_find_2(employee_id):
+    # Use lambda to use the input row to access the row and column where the . Filter the iterable `employees["rows"]` where the row is the employee id
+    matches = list(filter(lambda row : int(row[employee_id_column]) == employee_id , employees["rows"]))
+    return matches
+
 # Task 7: Sort the Rows by las_name Using a Lambda
 # Task 8: Create a dict for an Employee
 # Task 9: A dict of dicts, for All Employees
