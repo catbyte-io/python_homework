@@ -135,6 +135,41 @@ def set_that_secret(secret):
 set_that_secret("thissecret")
 
 
+# Helper function to create dict from file and convert rows to tuples
+def create_dict(file):
+    # Create empty dictionary
+    my_dict = {}
+
+    # Create list of rows
+    rows = []
+
+    # Read a csv file
+    try:
+        with open(file) as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+
+            # Get only the first line
+            my_dict["fields"] = next(reader)
+
+            # Read each row and save to list of rows
+            for row in reader:
+                tuple_row = tuple(row)
+                rows.append(tuple_row)
+                
+            my_dict["rows"] = rows
+        return my_dict
+                
+    except Exception as e:
+        trace_back = traceback.extract_tb(e.__traceback__)
+        stack_trace = list()
+        for trace in trace_back:
+            stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
+            print(f"Exception type: {type(e)._name_}")
+            message = str(e)
+            if message:
+                print(f"Exception message: {message}")
+            print(f"Stack trace: {stack_trace}")
+
 # Task 12: Read minutes1.csv and minutes2.csv
 # Task 13: Create minutes_set
 # Task 14: Convert to datetime
