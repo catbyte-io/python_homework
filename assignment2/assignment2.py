@@ -103,6 +103,23 @@ print(employee_dict(employees["rows"][0]))
 
 
 # Task 9: A dict of dicts, for All Employees
+def all_employees_dict():
+    # Create empty lists for ids and employee dicts
+    ids = []
+    employee_dicts = []
+
+    # Iterate through rows and append ids and dicts to lists
+    for row in employees["rows"]:
+        ids.append(row[0])
+        employee_dicts.append(employee_dict(row))
+    
+    # Return the dict created from the list of ids and dicts
+    return dict(zip(ids, employee_dicts))
+
+
+print(all_employees_dict())
+
+
 # Task 10: Use the os Module
 # Task 11: Creating Your Own Module
 # Task 12: Read minutes1.csv and minutes2.csv
