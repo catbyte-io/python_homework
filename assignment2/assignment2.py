@@ -1,3 +1,4 @@
+import os
 import csv
 import traceback
 
@@ -121,6 +122,10 @@ print(all_employees_dict())
 
 
 # Task 10: Use the os Module
+def get_this_value():
+    return os.environ.get("THISVALUE")
+
+
 # Task 11: Creating Your Own Module
 # Task 12: Read minutes1.csv and minutes2.csv
 # Task 13: Create minutes_set
