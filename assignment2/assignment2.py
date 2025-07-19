@@ -88,8 +88,8 @@ print(employee_last_name_column)
 
 # Task 7: Sort the Rows by last_name Using a Lambda
 def sort_by_last_name():
-    sorted_data = sorted(employees["rows"], key=lambda row : row[employee_last_name_column])
-    return sorted_data
+    employees["rows"].sort(key=lambda row : row[employee_last_name_column])
+    return employees["rows"]
 
 print(sort_by_last_name())
 
