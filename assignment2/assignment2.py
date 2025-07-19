@@ -40,6 +40,14 @@ employees = read_employees()
 print(employees)
 
 # Task 3: Find the Column Index
+def column_index(string):
+    index = employees["fields"].index(string)
+    return index
+
+employee_id_column = column_index("employee_id")
+print(employee_id_column)
+
+
 # Task 4: Find the Employee First Name
 # Task 5: Find the Employee: a Function in a Function
 # Task 6: Find the Employee with a Lambda
