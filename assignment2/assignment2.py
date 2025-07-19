@@ -171,6 +171,16 @@ def create_dict(file):
             print(f"Stack trace: {stack_trace}")
 
 # Task 12: Read minutes1.csv and minutes2.csv
+def read_minutes():
+    dict1 = create_dict('../csv/minutes1.csv')
+    dict2 = create_dict('../csv/minutes2.csv')
+
+    return dict1, dict2
+
+minutes1, minutes2 = read_minutes()
+print(f"Minutes1: {minutes1}\nMinutes2: {minutes2}")
+
+
 # Task 13: Create minutes_set
 # Task 14: Convert to datetime
 # Task 15: Write Out Sorted List
