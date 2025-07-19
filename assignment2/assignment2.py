@@ -64,8 +64,13 @@ print(employee_first_name)
 
 # Task 5: Find the Employee: a Function in a Function
 def employee_find(employee_id):
+    # employee_match gets the row where the employee id matches and returns as integer
     def employee_match(row):
         return int(row[employee_id_column]) == employee_id
+    
+    # Use filter() to find all instances of the employee and return as a list
+    matches = list(filter(employee_match, employees["rows"]))
+    return matches
 
 
 # Task 6: Find the Employee with a Lambda
