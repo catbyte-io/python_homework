@@ -128,6 +128,13 @@ def get_this_value():
 
 
 # Task 11: Creating Your Own Module
+def set_that_secret(secret):
+    custom_module.set_secret(secret)
+
+
+set_that_secret("thissecret")
+
+
 # Task 12: Read minutes1.csv and minutes2.csv
 # Task 13: Create minutes_set
 # Task 14: Convert to datetime
