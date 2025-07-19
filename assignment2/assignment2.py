@@ -59,8 +59,10 @@ def first_name(row_number):
     # Turn employee info row into a list and return the item at the index for the first names
     return list(employee_row)[index]
 
+
 employee_first_name = first_name(9)
 print(employee_first_name)
+
 
 # Task 5: Find the Employee: a Function in a Function
 def employee_find(employee_id):
@@ -79,7 +81,19 @@ def employee_find_2(employee_id):
     matches = list(filter(lambda row : int(row[employee_id_column]) == employee_id , employees["rows"]))
     return matches
 
-# Task 7: Sort the Rows by las_name Using a Lambda
+
+employee_last_name_column = column_index("last_name")
+print(employee_last_name_column)
+
+
+# Task 7: Sort the Rows by last_name Using a Lambda
+def sort_by_last_name():
+    sorted_data = sorted(employees["rows"], key=lambda row : row[employee_last_name_column])
+    return sorted_data
+
+print(sort_by_last_name())
+
+
 # Task 8: Create a dict for an Employee
 # Task 9: A dict of dicts, for All Employees
 # Task 10: Use the os Module
