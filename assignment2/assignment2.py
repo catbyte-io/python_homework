@@ -182,5 +182,11 @@ print(f"Minutes1: {minutes1}\nMinutes2: {minutes2}")
 
 
 # Task 13: Create minutes_set
+def create_minutes_set():
+    # Combines the minutes sets
+    minutes_set = minutes1.union(minutes2)
+    return minutes_set
+
+
 # Task 14: Convert to datetime
 # Task 15: Write Out Sorted List
