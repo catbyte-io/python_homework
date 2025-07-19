@@ -49,6 +49,19 @@ print(employee_id_column)
 
 
 # Task 4: Find the Employee First Name
+def first_name(row_number):
+    # Get index column for first names
+    index = column_index("first_name")
+
+    # Get the row with the employee information
+    employee_row = employees["rows"][row_number]
+
+    # Turn employee info row into a list and return the item at the index for the first names
+    return list(employee_row)[index]
+
+employee_first_name = first_name(9)
+print(employee_first_name)
+
 # Task 5: Find the Employee: a Function in a Function
 # Task 6: Find the Employee with a Lambda
 # Task 7: Sort the Rows by las_name Using a Lambda
