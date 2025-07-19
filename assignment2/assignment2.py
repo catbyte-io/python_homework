@@ -36,6 +36,9 @@ def read_employees():
                 print(f"Exception message: {message}")
             print(f"Stack trace: {stack_trace}")
 
+employees = read_employees()
+print(employees)
+
 # Task 3: Find the Column Index
 # Task 4: Find the Employee First Name
 # Task 5: Find the Employee: a Function in a Function
