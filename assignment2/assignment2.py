@@ -95,6 +95,13 @@ print(sort_by_last_name())
 
 
 # Task 8: Create a dict for an Employee
+def employee_dict(employee_data):
+    num = len(employees["fields"])
+    return dict(zip(employees["fields"][1:num], employee_data[1:num]))
+
+print(employee_dict(employees["rows"][0]))
+
+
 # Task 9: A dict of dicts, for All Employees
 # Task 10: Use the os Module
 # Task 11: Creating Your Own Module
