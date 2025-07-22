@@ -178,8 +178,8 @@ def read_minutes():
 
     return dict1, dict2
 
+
 minutes1, minutes2 = read_minutes()
-print(f"Minutes1: {minutes1}\nMinutes2: {minutes2}")
 
 
 # Task 13: Create minutes_set
