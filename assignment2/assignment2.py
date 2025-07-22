@@ -193,7 +193,25 @@ minutes_set = create_minutes_set()
 
 
 # Task 14: Convert to datetime
+def create_minutes_list():
+    # Turn minutes set into a list
+    minutes_list = list(minutes_set)  
 
+    # Initialize empty list
+    new_list = []
+
+    # Iterate through each entry, converting the date string to datetime object
+    for entry in minutes_list:
+        my_map = map(lambda entry : (entry[0], datetime.strptime(entry[1], "%B %d, %Y")), [entry])
+
+        # Append the result to the new list
+        new_list.append(list(my_map)[0])
+
+    return new_list
+
+
+minutes_list = create_minutes_list()
+print(minutes_list)
 
 
 # Task 15: Write Out Sorted List
