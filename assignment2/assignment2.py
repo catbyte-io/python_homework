@@ -189,6 +189,9 @@ def create_minutes_set():
     return minutes_set
 
 
+minutes_set = create_minutes_set()
+
+
 # Task 14: Convert to datetime
 
 
