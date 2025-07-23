@@ -219,6 +219,12 @@ def write_sorted_list():
 
     # Write minutes to csv file
     try:
-        with open('./minutes.csv') as csvfile:
-            ...
-    except:
+        with open('./minutes.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(minutes1["fields"])
+            writer.writerows(minutes_list)
+            
+    except Exception as e:
+        print_stack_trace(e)
+
+    return list(my_map)
