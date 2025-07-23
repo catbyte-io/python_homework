@@ -42,15 +42,8 @@ def read_employees():
         return my_dict
                 
     except Exception as e:
-        trace_back = traceback.extract_tb(e.__traceback__)
-        stack_trace = list()
-        for trace in trace_back:
-            stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
-            print(f"Exception type: {type(e)._name_}")
-            message = str(e)
-            if message:
-                print(f"Exception message: {message}")
-            print(f"Stack trace: {stack_trace}")
+        print_stack_trace(e)
+
 
 employees = read_employees()
 print(employees)
@@ -174,15 +167,8 @@ def create_dict(file):
         return my_dict
                 
     except Exception as e:
-        trace_back = traceback.extract_tb(e.__traceback__)
-        stack_trace = list()
-        for trace in trace_back:
-            stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
-            print(f"Exception type: {type(e)._name_}")
-            message = str(e)
-            if message:
-                print(f"Exception message: {message}")
-            print(f"Stack trace: {stack_trace}")
+        print_stack_trace(e)
+
 
 # Task 12: Read minutes1.csv and minutes2.csv
 def read_minutes():
