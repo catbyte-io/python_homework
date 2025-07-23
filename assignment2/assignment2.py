@@ -211,7 +211,8 @@ print(minutes_list)
 
 # Task 15: Write Out Sorted List
 def write_sorted_list():
-    minutes_list.sort(key=lambda row : row[2])
+    # Sort minutes list using the datetime
+    minutes_list.sort(key=lambda row : row[1])
 
     map(lambda row : (row[0], datetime.strftime(row[1], "%B %d, %Y")))
 
