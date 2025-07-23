@@ -97,7 +97,9 @@ def sort_by_last_name():
     employees["rows"].sort(key=lambda row : row[employee_last_name_column])
     return employees["rows"]
 
-print(sort_by_last_name())
+
+sort_by_last_name()
+print(employees)
 
 
 # Task 8: Create a dict for an Employee
