@@ -56,7 +56,6 @@ def column_index(string):
 
 
 employee_id_column = column_index("employee_id")
-print(employee_id_column)
 
 
 # Task 4: Find the Employee First Name
