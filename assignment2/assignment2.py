@@ -214,7 +214,8 @@ def write_sorted_list():
     # Sort minutes list using the datetime
     minutes_list.sort(key=lambda row : row[1])
 
-    map(lambda row : (row[0], datetime.strftime(row[1], "%B %d, %Y")))
+    # Use map to convert datetime objects back to strings
+    my_map = map(lambda row : (row[0], datetime.strftime(row[1], "%B %d, %Y")), minutes_list)
 
     # Write minutes to csv file
     try:
