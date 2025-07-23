@@ -140,6 +140,7 @@ def set_that_secret(secret):
 
 
 set_that_secret("thissecret")
+print(custom_module.secret)
 
 
 # Helper function to create dict from file and convert rows to tuples
