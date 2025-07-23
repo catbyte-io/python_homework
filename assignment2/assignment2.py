@@ -48,10 +48,12 @@ def read_employees():
 employees = read_employees()
 print(employees)
 
+
 # Task 3: Find the Column Index
 def column_index(string):
     index = employees["fields"].index(string)
     return index
+
 
 employee_id_column = column_index("employee_id")
 print(employee_id_column)
@@ -67,10 +69,6 @@ def first_name(row_number):
 
     # Turn employee info row into a list and return the item at the index for the first names
     return list(employee_row)[index]
-
-
-employee_first_name = first_name(9)
-print(employee_first_name)
 
 
 # Task 5: Find the Employee: a Function in a Function
@@ -107,6 +105,7 @@ print(sort_by_last_name())
 def employee_dict(employee_data):
     num = len(employees["fields"])
     return dict(zip(employees["fields"][1:num], employee_data[1:num]))
+
 
 print(employee_dict(employees["rows"][0]))
 
@@ -219,6 +218,7 @@ def write_sorted_list():
 
     map(lambda row : (row[0], datetime.strftime(row[1], "%B %d, %Y")))
 
+    # Write minutes to csv file
     try:
         with open('./minutes.csv') as csvfile:
             ...
