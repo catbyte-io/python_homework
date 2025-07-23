@@ -180,6 +180,7 @@ def read_minutes():
 
 
 minutes1, minutes2 = read_minutes()
+print(f"minutes1: {minutes1}\nminutes2: {minutes2}")
 
 
 # Task 13: Create minutes_set
