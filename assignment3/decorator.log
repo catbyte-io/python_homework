@@ -1,0 +1,3 @@
+function: meow positional parameters: () keyword parameters: {} return: None
+function: true_func positional parameters: (1, 2, 3) keyword parameters: {} return: True
+function: log_dec positional parameters: () keyword parameters: {'key1': 'a', 'key2': 'b', 'key3': 'c'} return: <function logger_decorator at 0x7f7cc888f600>
