@@ -217,14 +217,16 @@ def write_sorted_list():
     # Use map to convert datetime objects back to strings
     my_map = map(lambda row : (row[0], datetime.strftime(row[1], "%B %d, %Y")), minutes_list)
 
+    new_list = list(my_map)
+
     # Write minutes to csv file
     try:
         with open('./minutes.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(minutes1["fields"])
-            writer.writerows(minutes_list)
+            writer.writerows(new_list)
             
     except Exception as e:
         print_stack_trace(e)
 
-    return list(my_map)
+    return new_list
