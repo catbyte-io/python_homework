@@ -10,7 +10,7 @@ try:
     text = ""
 
     # Open file
-    with open("diary.txt", "w") as file:
+    with open("diary.txt", "a") as file:
         # Continually prompt the user
         while True:
             if first_prompt:
