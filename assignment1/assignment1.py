@@ -1,1 +1,246 @@
-# Write your code here.
+# Task 1: Hello
+# Write a function that returns "Hello!"
+def hello():
+    return "Hello!"
+
+
+# Task 2: Greet with a Formatted String
+# Take one argument and return a greeting "Hello, Name!"
+def greet(name):
+    return f"Hello, {name}!"
+
+
+# Task 3: Calculator
+# Write a calc function that takes 3 arguments with default thrid argument "multiply"
+def calc(num1, num2, operator="multiply"):
+    type_error = f"You can't {operator} those values!"
+    zero_error = "You can't divide by 0!"
+
+    match operator:
+        case "add":
+            try:
+                result = num1 + num2
+            except TypeError:
+                return type_error
+        case "subtract":
+            try:
+                result = num1 - num2
+            except TypeError:
+                return type_error
+        case "multiply":
+            try:
+                result = num1 * num2
+            except TypeError:
+                return type_error
+        case "divide":
+            try:
+                result = num1 / num2
+            except TypeError:
+                return type_error
+            except ZeroDivisionError:
+                return zero_error
+        case "modulo":
+            try:
+                result = num1 % num2
+            except TypeError:
+                return type_error
+            except ZeroDivisionError:
+                return zero_error
+        case "int_divide":
+            try:
+                result = num1 // num2
+            except TypeError:
+                return type_error
+        case "power":
+            try:
+                result = num1 ** num2
+            except TypeError:
+                return type_error
+        # Default case to catch all other arguments
+        case _:
+            return "Please choose from the following: add, subtract, multiply, divide, modulo, int_divide, or power."
+    return result
+
+
+# Task 4: Data Type Conversion
+# Create a function that takes two parameters: a value and the type to convert to
+def data_type_conversion(value, type):
+    value_error = f"You can't convert {value} into a {type}."
+    match type:
+        case "float":
+            try:
+                converted = float(value)
+            except ValueError:
+                return value_error
+        case "str":
+            try:
+                converted = str(value)
+            except ValueError:
+                return value_error
+        case "int":
+            try:
+                converted = int(value)
+            except ValueError:
+                return value_error
+    return converted
+
+
+# Task 5: Grading System, Using *args
+def grade(*args):
+    try:
+        average = sum(args) / len(args)
+    except (TypeError, ZeroDivisionError):
+        return "Invalid data was provided."
+    if average < 60:
+        return "F"
+    elif average < 70:
+        return "D"
+    elif average < 80:
+        return "C"
+    elif average < 90:
+        return "B"
+    else:
+        return "A"
+    
+
+# Task 6: Use a For Loop with a Range
+def repeat(string, count):
+    # Assign blank string to word
+    word = ""
+
+    # For each count, add the given string to the word string
+    for i in range(count):
+        word = f"{word}{string}"
+
+    # Return the new string
+    return word
+
+
+# Task 7: Student Scores, Using **kwargs
+def student_scores(choice, **kwargs): 
+    match choice:
+        case "best":
+            # Initialize high_score to keep track of highest score
+            high_score = 0
+
+            # Track the highest scoring student
+            hs_student = ""
+
+            for student, score in kwargs.items():
+                if score > high_score:
+                    high_score = score
+                    hs_student = student
+            return hs_student
+        case "mean":
+            # Calculate the average of the list of scores
+            scores = kwargs.values()
+            mean = sum(scores) / len(scores)
+            return mean
+
+# Task 8: Titleize, with String and List Operations
+def titleize(string):
+    # Split the string using whitespace character and assign to a list of words
+    words = string.split(" ")
+
+    # Define list of little words to skip capitalization
+    little_words = ["a", "on", "an", "the", "of", "and", "is", "in"]
+
+    # Enumerate the list of words and capitalize the relevant words
+    for i, word in enumerate(words):
+        # Check if the word is not a little word and if so capitalize
+        if words[i] not in little_words or i == 0 or i == len(words) - 1:
+            # Assign word the new capitalized word
+            words[i] = words[i].capitalize()
+
+    # Join the titleized words together using a whitespace character
+    new_string = " ".join(words)
+
+    # Return the new titleized string
+    return new_string
+
+
+# Task 9: Hangman, with more String Operations
+def hangman(secret, guess):
+    # Create a list of letters from the secret
+    secret_letters = list(secret)
+
+    # Create a list of letters from the guess
+    guessed_letters = list(guess)
+
+    # Create empty string for result
+    result = ""
+
+    # Enumerate through each letter in the secret
+    for i, s_letter in enumerate(secret_letters):
+        # Check if that letter was guessed
+        if s_letter in guessed_letters:
+            # If guessed, append to result
+            result += s_letter
+        else:
+            # If not guessed, append underscore
+            result += "_"
+
+    # Return the resulting string
+    return result
+
+# Task 10: Pig Latin, Another String Manipulation Exercise
+def pig_latin(string):
+    # Create list of words from string
+    words = string.split(" ")
+
+    # Create a list in which to store converted words
+    ordsray = []
+
+    # Create list of vowels
+    vowels = ["a", "e", "i", "o", "u"]
+ 
+    # For each word in the list, convert to pig latin
+    for word in words:
+        # Create a blank string for the converted word
+        converted = ""
+
+        # Check for word starting with vowel and for no vowels (asked GPT-4.0 mini how to check if none of the letters /
+        # are in the list of vowels because my initial attempt of `or vowels not in word` and attempt to use word[0:len(word) - 1] did not work)     
+        if word[0] in vowels or all(letter not in vowels for letter in word):
+            converted += f"{word}ay"
+        # Check for qu condition
+        elif "qu" in word:
+            # Find the index where "qu" first occurs and add two to get index to make the swap
+            qu_index = word.index("qu") + 2
+            converted += f"{word[qu_index:]}{word[:qu_index]}ay"
+        else:
+            # Check for first instance of a vowel and create converted word by swapping using indexing and adding "ay"
+            for j, letter in enumerate(word):
+                if letter in vowels:
+                    converted += f"{word[j:]}{word[:j]}ay"
+                    break
+        # Add converted word to list of converted words
+        ordsray.append(converted)
+
+    # Join the words back together
+    ingstray = " ".join(ordsray)
+    return ingstray
+
+
+### DEBUGGING ###
+
+# Prints "Hello!"
+# print(hello())
+
+# Prints "Hello, Cersei!"
+# print(greet("Cersei"))
+
+# Prints "You can't subtract those values!"
+# print(calc("5", 7, "subtract"))
+
+# Prints "up!up!up!up!up!up!"
+# print(repeat("up!", 11))
+
+# Prints "And This is a Test If"
+# print(titleize("and this is a test if"))
+
+# Prints "o_______g_____m"
+# print(hangman("operatingsystem", "omg"))
+
+# Prints "RMCay ibblequay albuquerqueay aressquay evernay usttray alwaysay erifyvay"
+# print(pig_latin("RMC quibble albuquerque squares never trust always verify"))
