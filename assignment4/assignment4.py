@@ -31,3 +31,14 @@ task1_older.to_csv("employees.csv", index=False)
 # Read data from a CSV file
 task2_employees = pd.read_csv("employees.csv")
 print(task2_employees)
+
+# Read data from JSON file
+json_employees = pd.read_json("additional_employees.json")
+print(json_employees)
+
+# Combine DataFrames
+frames = [task2_employees, json_employees]
+more_employees = pd.concat(frames, ignore_index=True)
+print(more_employees)
+
+
