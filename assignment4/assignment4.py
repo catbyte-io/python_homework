@@ -71,3 +71,8 @@ print(clean_data)
 
 # Covert age to numeric and handle missing values
 clean_data["Age"] = pd.to_numeric(clean_data["Age"], downcast="integer", errors="coerce")
+print(clean_data)
+
+# Convert Salary to numeric, replacing known placeholders with NaN
+clean_data["Salary"] = pd.to_numeric(clean_data["Salary"], downcast="integer", errors="coerce")
+print(clean_data)
