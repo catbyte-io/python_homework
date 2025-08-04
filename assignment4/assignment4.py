@@ -1,4 +1,3 @@
-# Task 1: Introduction to Pandas - Creating and Manipulating DataFrames
 import pandas as pd
 
 
@@ -28,3 +27,7 @@ print(task1_older)
 task1_older.to_csv("employees.csv", index=False)
 
 
+# Task 2: Loading Data from CSV and JSON
+# Read data from a CSV file
+task2_employees = pd.read_csv("employees.csv")
+print(task2_employees)
