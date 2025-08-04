@@ -2,6 +2,7 @@
 import pandas as pd
 
 
+# Task 1: Introduction to Pandas - Creating and Manipulating DataFrames
 # Create dictionary
 my_dict = {"Name": ["Alice", "Bob", "Charlie"],
            "Age": [25, 30, 35],
