@@ -68,3 +68,6 @@ clean_data = dirty_data.copy()
 # Remove duplicate rows
 clean_data = clean_data.drop_duplicates(ignore_index=True)
 print(clean_data)
+
+# Covert age to numeric and handle missing values
+clean_data["Age"] = pd.to_numeric(clean_data["Age"], downcast="integer", errors="coerce")
