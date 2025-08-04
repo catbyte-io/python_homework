@@ -62,3 +62,9 @@ print(more_employees.info())
 # Task 4: Data Cleaning
 dirty_data = pd.read_csv("dirty_data.csv")
 print(dirty_data)
+
+clean_data = dirty_data.copy()
+
+# Remove duplicate rows
+clean_data = clean_data.drop_duplicates(ignore_index=True)
+print(clean_data)
