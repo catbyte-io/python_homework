@@ -50,3 +50,7 @@ print(first_three)
 # Use the tail() method
 last_two = more_employees.tail(n=2)
 print(last_two)
+
+# Get the shape of the DataFrame
+employee_shape = more_employees.shape
+print(employee_shape)
