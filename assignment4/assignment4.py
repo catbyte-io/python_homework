@@ -54,3 +54,6 @@ print(last_two)
 # Get the shape of the DataFrame
 employee_shape = more_employees.shape
 print(employee_shape)
+
+# Use the info() method
+print(more_employees.info())
