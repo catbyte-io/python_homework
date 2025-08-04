@@ -23,3 +23,8 @@ print(task1_with_salary)
 task1_older = task1_with_salary.copy()
 task1_older["Age"] += 1
 print(task1_older)
+
+# Save the DataFrame as a CSV file
+task1_older.to_csv("employees.csv", index=False)
+
+
