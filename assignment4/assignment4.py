@@ -57,3 +57,8 @@ print(employee_shape)
 
 # Use the info() method
 print(more_employees.info())
+
+
+# Task 4: Data Cleaning
+dirty_data = pd.read_csv("dirty_data.csv")
+print(dirty_data)
