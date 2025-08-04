@@ -42,3 +42,11 @@ more_employees = pd.concat(frames, ignore_index=True)
 print(more_employees)
 
 
+# Task 3: Data Inspection - Using Head, Tail, and Info Methods
+# Use the head() method
+first_three = more_employees.head(n=3)
+print(first_three)
+
+# Use the tail() method
+last_two = more_employees.tail(n=2)
+print(last_two)
