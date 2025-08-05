@@ -61,18 +61,20 @@ print(more_employees.info())
 
 # Task 4: Data Cleaning
 dirty_data = pd.read_csv("dirty_data.csv")
-print(dirty_data)
+print(f"Dirty Data:\n{dirty_data}")
 
 clean_data = dirty_data.copy()
 
 # Remove duplicate rows
 clean_data = clean_data.drop_duplicates(ignore_index=True)
-print(clean_data)
+print(f"Removed Duplicate Rows:\n{clean_data}")
 
 # Covert age to numeric and handle missing values
-clean_data["Age"] = pd.to_numeric(clean_data["Age"], downcast="integer", errors="coerce")
-print(clean_data)
+clean_data["Age"] = pd.to_numeric(clean_data["Age"], errors="coerce")
+print(f"Converted Age to Numeric:\n{clean_data}")
 
 # Convert Salary to numeric, replacing known placeholders with NaN
-clean_data["Salary"] = pd.to_numeric(clean_data["Salary"], downcast="integer", errors="coerce")
-print(clean_data)
+clean_data["Salary"] = pd.to_numeric(clean_data["Salary"], errors="coerce")
+print(f"Converted Salary to Numeric:\n{clean_data}")
+
+
