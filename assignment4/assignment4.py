@@ -77,4 +77,9 @@ print(f"Converted Age to Numeric:\n{clean_data}")
 clean_data["Salary"] = pd.to_numeric(clean_data["Salary"], errors="coerce")
 print(f"Converted Salary to Numeric:\n{clean_data}")
 
+# Fill missing numeric values (use fillna). Fill Age whith the mean and Salary with the median
+clean_data["Age"] = clean_data["Age"].fillna(value=clean_data["Age"].mean())
+clean_data["Salary"] = clean_data["Salary"].fillna(value=clean_data["Salary"].median())
+print(f"Filled Missing Numeric:\n{clean_data}")
+
 
