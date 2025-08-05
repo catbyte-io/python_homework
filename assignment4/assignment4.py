@@ -83,3 +83,31 @@ clean_data["Salary"] = clean_data["Salary"].fillna(value=clean_data["Salary"].me
 print(f"Filled Missing Numeric:\n{clean_data}")
 
 
+# Helper function to fix date string formats to YYYY/MM/DD
+def fix_format(date_str):
+    sects = date_str.split("/")
+    if len(sects[0]) == 4:
+        return date_str
+    else:
+        return f"{sects[2]}/{sects[0]}/{sects[1]}"
+    
+
+# Convert Hire Date to datetime
+# Create list from hire dates
+dates = clean_data["Hire Date"].to_list()
+# Remove whitespace and replace - characters with /
+dates = [date.strip().replace("-", "/") for date in dates]
+# Use helper function to fix date string formats
+dates = [fix_format(date) for date in dates]
+# Use list of fixed date strings as hire date and convert to datetime 
+clean_data["Hire Date"] = pd.to_datetime(dates, errors="coerce")
+print(f"Converted to datetime:\n{clean_data}")
+
+# Standardize Name and Department
+clean_data["Name"] = clean_data["Name"].str.strip()
+clean_data["Name"] = clean_data["Name"].str.upper()
+
+clean_data["Department"] = clean_data["Department"].str.strip()
+clean_data["Department"] = clean_data["Department"].str.upper()
+
+print(f"Standardized:\n{clean_data}")
