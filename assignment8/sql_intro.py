@@ -169,4 +169,3 @@ with sqlite3.connect("../db/magazines.db") as conn:
             print(row)
     else:
         print("No magazines found for thsi publisher.")
-    # Add these queries to your script. For each, print out all the rows returned by the query.
