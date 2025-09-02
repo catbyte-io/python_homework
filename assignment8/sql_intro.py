@@ -141,5 +141,15 @@ with sqlite3.connect("../db/magazines.db") as conn:
         create_subscription(cursor, sub_name, sub_address, magazine_name)
 
 
-# Task 4: Write SQL Queries
+    # Task 4: Write SQL Queries
+    # Write a query to retrieve all information from the subscribers table.
+    cursor.execute("SELECT * FROM Subscribers")
+    subscriber_info = cursor.fetchall()
+    if len(subscriber_info) > 0:
+        print(f"Subscribers:\n{subscriber_info}")
+    else:
+        print("No subscribers yet.")
 
+    # Write a query to retrieve all magazines sorted by name.
+    # Write a query to find magazines for a particular publisher, one of the publishers you created. This requires a JOIN.
+    # Add these queries to your script. For each, print out all the rows returned by the query.
