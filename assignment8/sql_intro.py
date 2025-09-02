@@ -161,4 +161,12 @@ with sqlite3.connect("../db/magazines.db") as conn:
             print(row)
 
     # Write a query to find magazines for a particular publisher, one of the publishers you created. This requires a JOIN.
+    cursor.execute("SELECT m.name FROM Magazines AS m JOIN Publishers AS p ON m.publisher_id = p.publisher_id WHERE p.name = ?", (publishers[1],))
+    pub_magazines = cursor.fetchall()
+    if len(pub_magazines) > 0:
+        print("Magazines published by Yong Com:")
+        for row in pub_magazines:
+            print(row)
+    else:
+        print("No magazines found for thsi publisher.")
     # Add these queries to your script. For each, print out all the rows returned by the query.
