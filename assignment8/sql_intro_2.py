@@ -10,6 +10,8 @@ with sqlite3.connect("../db/lesson.db") as conn:
     print(df.head(5))
 
 # Add a column to the DataFrame called "total". This is the quantity times the price. (This is easy: df['total'] = df['quantity'] * df['price'].) Print out the first 5 lines of the DataFrame to make sure this works.
+df['total'] = df['quantity'] * df['price']
+print(f"Added total column:\n{df.head(5)}")
 
 # Add groupby() code to group by the product_id. Use an agg() method that specifies 'count' for the line_item_id column, 'sum' for the total column, and 'first' for the 'product_name'. Print out the first 5 lines of the resulting DataFrame. Run the program to see if it is correct so far.
 
