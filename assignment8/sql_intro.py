@@ -146,10 +146,19 @@ with sqlite3.connect("../db/magazines.db") as conn:
     cursor.execute("SELECT * FROM Subscribers")
     subscriber_info = cursor.fetchall()
     if len(subscriber_info) > 0:
-        print(f"Subscribers:\n{subscriber_info}")
+        print("Subscriber info:")
+        for row in subscriber_info:
+            print(row)
     else:
         print("No subscribers yet.")
 
     # Write a query to retrieve all magazines sorted by name.
+    cursor.execute("SELECT * FROM Magazines ORDER BY name")
+    magazine_info = cursor.fetchall()
+    if len(magazine_info) > 0:
+        print("Magazine info:")
+        for row in magazine_info:
+            print(row)
+
     # Write a query to find magazines for a particular publisher, one of the publishers you created. This requires a JOIN.
     # Add these queries to your script. For each, print out all the rows returned by the query.
