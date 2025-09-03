@@ -18,8 +18,8 @@ df_groupby = df.groupby('product_id').agg({'line_item_id':'count', 'total': 'sum
 print(f"groupby and agg:\n{df_groupby.head(5)}\n")
 
 # Sort the DataFrame by the product_name column.
-df_sorted = df.sort_values(by='product_name')
+df_sorted = df_groupby.sort_values(by='product_name')
 print(f"Sorted by product_name:\n{df_sorted.head(5)}")
 
 # Add code to write this DataFrame to a file order_summary.csv, which should be written in the assignment8 directory. Verify that this file is correct.
-df_sorted.to_csv('order_summary.csv')
+df_sorted.to_csv('order_summary.csv', float_format='%.2f')
