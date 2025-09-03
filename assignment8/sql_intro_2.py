@@ -14,7 +14,12 @@ df['total'] = df['quantity'] * df['price']
 print(f"Added total column:\n{df.head(5)}")
 
 # Add groupby() code to group by the product_id. Use an agg() method that specifies 'count' for the line_item_id column, 'sum' for the total column, and 'first' for the 'product_name'. Print out the first 5 lines of the resulting DataFrame. Run the program to see if it is correct so far.
+df_groupby = df.groupby('product_id').agg({'line_item_id':['count'], 'total': ['sum'], 'product_name': ['first']})
+print(f"groupby and agg:\n{df_groupby.head(5)}")
 
-# Sort the DataFrame by the product_name coluON line_items.product_id = products.product_id.mn.
+# Sort the DataFrame by the product_name column.
+df_sorted = df_groupby.sort_values(by=[('product_name', 'first')])
+print(f"Sorted by product_name:\n{df_sorted.head(5)}")
 
 # Add code to write this DataFrame to a file order_summary.csv, which should be written in the assignment8 directory. Verify that this file is correct.
+df_sorted.to_csv('order_summary.csv')
