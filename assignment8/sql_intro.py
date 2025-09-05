@@ -23,7 +23,7 @@ with sqlite3.connect("../db/magazines.db") as conn:
         CREATE TABLE IF NOT EXISTS Magazines (
             magazine_id INTEGER PRIMARY KEY,
             name TEXT NOT NULL UNIQUE,
-            publisher_id INTEGER,
+            publisher_id INTEGER NOT NULL,
             FOREIGN KEY (publisher_id) REFERENCES Publishers (publisher_id)
         )
         """)
@@ -39,8 +39,8 @@ with sqlite3.connect("../db/magazines.db") as conn:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS Subscriptions (
             subscription_id INTEGER PRIMARY KEY,
-            magazine_id INTEGER,
-            subscriber_id INTEGER,
+            magazine_id INTEGER NOT NULL,
+            subscriber_id INTEGER NOT NULL,
             expiration_date TEXT NOT NULL,
             FOREIGN KEY (magazine_id) REFERENCES Magazines (magazine_id)
         )
