@@ -32,7 +32,8 @@ with sqlite3.connect("../db/magazines.db") as conn:
         CREATE TABLE IF NOT EXISTS Subscribers (
             subscriber_id INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
-            address TEXT NOT NULL
+            address TEXT NOT NULL,
+            UNIQUE (name, address)
         )
         """)
 
@@ -135,7 +136,7 @@ with sqlite3.connect("../db/magazines.db") as conn:
     for magazine_name, publisher_name in magazines:
         add_magazine(cursor, magazine_name, publisher_name)
     
-    subscribers = [("Jody Yuhas", "1425 Sycamore, Salmon ID", "Electric Beat"), ("Klint Hondel", "829 Five Mile Creek, Taos NM", "CyberGuardian"), ("Georgia Harris", "1355 Tamarack Drive, Tuscon AZ", "Wind Breaker")]
+    subscribers = [("Jody Yuhas", "1425 Sycamore, Salmon ID", "Electric Beat"), ("Klint Hondel", "829 Five Mile Creek, Taos NM", "CyberGuardian"), ("Georgia Harris", "1355 Tamarack Drive, Tuscon AZ", "Wind Breaker"), ("Tara Yuhas", "1425 Sycamore, Salmon ID", "Wind Breaker"), ("Tara Yuhas", "1355 Tamarack Drive, Tuscon AZ", "Wind Breaker"), ("Tara Yuhas", "1425 Sycamore, Salmon ID", "Wind Breaker"), ("Tara Yuhas", "1355 Tamarack Drive, Tuscon AZ", "Wind Breaker")]
 
     for sub_name, sub_address, magazine_name in subscribers:
         add_subscriber(cursor, sub_name, sub_address)
