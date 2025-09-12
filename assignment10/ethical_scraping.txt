@@ -1,0 +1,3 @@
+Which sections of the website are restricted for crawling?
+Are there specific rules for certain user agents?
+Reflect on why websites use robots.txt and write 2-3 sentences explaining its purpose and how it promotes ethical scraping.
