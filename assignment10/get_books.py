@@ -11,5 +11,15 @@ from selenium.webdriver.common.by import By
 # Initialize driver
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-# Get the library website
-driver.get('https://durhamcounty.bibliocommons.com/v2/search?query=learning%20spanish&searchType=smart')
+# Get the Durham library 
+try:
+    driver.get('https://durhamcounty.bibliocommons.com/v2/search?query=learning%20spanish&searchType=smart')
+
+    # Find all the li elements in that page for the search list results.
+    
+
+except Exception as e:
+    print("Could not find website.")
+    print(f"Exception: {type(e).__name__} {e}")
+finally:
+    driver.quit()
