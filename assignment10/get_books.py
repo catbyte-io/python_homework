@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 
-### Task 3: Write a Program to Extract this Data ###
+# Task 3: Write a Program to Extract this Data
 # Initialize driver
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
