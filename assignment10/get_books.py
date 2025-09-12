@@ -11,12 +11,33 @@ from selenium.webdriver.common.by import By
 # Initialize driver
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-# Get the Durham library 
+# Get the Durham library website
 try:
     driver.get('https://durhamcounty.bibliocommons.com/v2/search?query=learning%20spanish&searchType=smart')
 
     # Find all the li elements in that page for the search list results.
+    list_items = driver.find_elements(By.CSS_SELECTOR, 'li.cp-search-result-item')
+
+    # Within your program, create an empty list called results.
+    results = []
     
+    # Iterate through entries. Create a dict that stores these values, with the keys being Title, Author, and Format-Year.  Then append that dict to your results list.
+    for item in list_items:
+        values = {}
+        values['Title'] = item.find_element(By.CLASS_NAME, 'title-content').text
+        authors = item.find_elements(By.CLASS_NAME, 'author-link')
+        if (authors):
+            author_list = [author.text for author in authors]
+            author_names = ';'.join(author_list)
+            values['Author'] = author_names
+        format_info = item.find_element(By.CLASS_NAME, 'cp-format-info')
+        if (format_info):
+            format_year = format_info.find_element(By.CLASS_NAME,'cp-screen-reader-message')
+            values['Format-Year'] = format_year.text
+
+        results.append(values)
+
+    print(results)
 
 except Exception as e:
     print("Could not find website.")
