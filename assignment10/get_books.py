@@ -37,7 +37,17 @@ try:
 
         results.append(values)
 
-    print(results)
+    # Create DataFrame from results
+    df_results = pd.DataFrame(results)
+    print(df_results)
+
+    # Task 4: Write out the Data
+    # Write the DataFrame to a csv file
+    df_results.to_csv('get_books.csv')
+
+    # Write the results list out to a file called get_books.json,
+    with open('get_books.json', 'w') as file:
+        json.dump(results, file)
 
 except Exception as e:
     print("Could not find website.")
