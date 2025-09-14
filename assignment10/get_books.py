@@ -47,7 +47,7 @@ try:
 
     # Write the results list out to a file called get_books.json,
     with open('get_books.json', 'w') as file:
-        json.dump(results, file)
+        json.dump(results, file, indent=4)
 
 except Exception as e:
     print("Could not find website.")
