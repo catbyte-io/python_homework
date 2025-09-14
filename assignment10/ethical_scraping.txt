@@ -1,0 +1,40 @@
+Which sections of the website are restricted for crawling?
+/w/
+/api/
+/trap/
+/wiki/Special: in all variants
+Various sections of the following
+ar:
+dewiki:
+enwiki:
+fiwiki:
+hewiki:
+huwiki:
+itwiki:
+jawiki:
+nowiki:
+ptwiki:
+rowiki:
+ruwiki:
+svwiki:
+zhwiki:
+enwikinews:
+itwikinews:
+enwikiquote:
+enwikibooks:
+Adminship and arbitration discussions
+User sandboxes
+phabricator
+deletion and meta user discussion pages
+
+Are there specific rules for certain user agents?
+Yes, there are specific rules for some user agents. Some user agents are not allowed to access any part of the website.
+Some user agents are not allowed unless feeding search engines.
+
+Reflect on why websites use robots.txt and write 2-3 sentences explaining its purpose and how it promotes ethical scraping.
+The purpose of robots.txt is to specify which parts of a website are allowed for accessing and scraping and the user-agents that can be used.
+Rate limits may also be specified in robots.txt.
+This file promotes ethical scraping by deterring scrapers from paths containing sensitive or protected information and content.
+It also specifies how web scrapers can get content without making that content unavailable to other users.
+When the guidelines in robots.txt are followed, it helps keep scraping practices within regulations and policies.
+This also maintains responsible data collection practices and promotes data availability.

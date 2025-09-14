@@ -1,0 +1,5 @@
+In the assignment to scrape the OWASP Top Ten list, it was a challenge to get the specific elements with the top ten items.
+The elements containing the list items did not have a specified class or an id. The parent element containing the list items
+was a more generic container for many other page elements. I decided to try starting with the closest parent element with an identifying id.
+I then used that to find all 'a' tags within that element. Because there was an 'a' element that was not a part of the top ten list,
+I used indexing to start with index 1 when saving the list items to a dictionary. This approach worked out well.
