@@ -171,4 +171,4 @@ with sqlite3.connect("../db/magazines.db") as conn:
         for row in pub_magazines:
             print(row)
     else:
-        print("No magazines found for thsi publisher.")
+        print("No magazines found for this publisher.")
