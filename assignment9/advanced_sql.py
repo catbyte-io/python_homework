@@ -112,7 +112,7 @@ with sqlite3.connect("../db/lesson.db") as conn:
     # Task 4: Aggregation with HAVING
     # Find all employees associated with more than 5 orders.  You want the first_name, the last_name, and the count of orders. 
     sql_statement_3 = """
-        SELECT e.first_name, e.last_name, COUNT (o.order_id) AS num_orders
+        SELECT e.employee_id, e.first_name, e.last_name, COUNT (o.order_id) AS num_orders
         FROM employees e JOIN orders o ON e.employee_id = o.employee_id
         GROUP BY e.employee_id
         HAVING num_orders > 5;
