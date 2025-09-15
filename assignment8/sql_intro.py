@@ -43,7 +43,8 @@ with sqlite3.connect("../db/magazines.db") as conn:
             magazine_id INTEGER NOT NULL,
             subscriber_id INTEGER NOT NULL,
             expiration_date TEXT NOT NULL,
-            FOREIGN KEY (magazine_id) REFERENCES Magazines (magazine_id)
+            UNIQUE (magazine_id, subscriber_id),
+            FOREIGN KEY (magazine_id) REFERENCES Magazines (magazine_id),
             FOREIGN KEY (subscriber_id) REFERENCES Subscribers (subscriber_id)        
         )
         """)
